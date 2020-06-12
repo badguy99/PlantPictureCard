@@ -11,17 +11,17 @@ class PlantPictureCard extends HTMLElement {
   }
 
   static getStubConfig() {
-    return {entity: '',
-            image: '' }
+    return {entity: "",
+            image: "" };
   }
 
   constructor() {
     super();
-    this.attachShadow({ mode: 'open' });
+    this.attachShadow({ mode: "open" });
   }
 
   _click(entity) {
-      this._fire('hass-more-info', { entityId: entity });
+      this._fire("hass-more-info", { entityId: entity });
   }
 
   _fire(type, detail) {
@@ -45,7 +45,7 @@ class PlantPictureCard extends HTMLElement {
       _title = hass.states[config.entity].attributes.friendly_name;
     }
 
-    this.shadowRoot.getElementById('box').innerHTML = `
+    this.shadowRoot.getElementById("box").innerHTML = `
       <div class="title">${_title}</div>
       <div id="sensors">
       </div>
@@ -57,22 +57,22 @@ class PlantPictureCard extends HTMLElement {
       hass.states[config.entity].attributes.sensors.brightness,
       hass.states[config.entity].attributes.sensors.conductivity,
       hass.states[config.entity].attributes.sensors.battery
-    ]
+    ];
 
     var _sensors = [
-        'moisture',
-        'temperature',
-        'brightness',
-        'conductivity',
-        'battery'
+        "moisture",
+        "temperature",
+        "brightness",
+        "conductivity",
+        "battery"
     ];
 
     const _icons = [
-      'mdi:water',
-      'mdi:thermometer',
-      'mdi:white-balance-sunny',
-      'mdi:emoticon-poop',
-      'mdi:battery'
+      "mdi:water",
+      "mdi:thermometer",
+      "mdi:white-balance-sunny",
+      "mdi:emoticon-poop",
+      "mdi:battery"
     ]
 
     for (var i=0; i < _entities.length; i++) {
@@ -82,11 +82,11 @@ class PlantPictureCard extends HTMLElement {
       var _uom = hass.states[_sensor].attributes.unit_of_measurement;
       var _icon = hass.states[_sensor].attributes.icon;
       var _class = "state-on";
-      if ( hass.states[config.entity].attributes.problem.indexOf(_sensors[i]) != -1){
-        _class += ' state-problem';
+      if ( hass.states[config.entity].attributes.problem.indexOf(_sensors[i]) !== -1){
+        _class += " state-problem";
       }
 
-      this.shadowRoot.getElementById('sensors').innerHTML += `
+      this.shadowRoot.getElementById("sensors").innerHTML += `
         <div id="sensor${i}" class="sensor">
           <div class="icon"><ha-icon icon="${_icons[i]}"></ha-icon></div>
           <div class="${_class}">${_state}</div>
@@ -96,16 +96,16 @@ class PlantPictureCard extends HTMLElement {
     }
 
     for (var i=0; i < _entities.length; i++) {
-       this.shadowRoot.getElementById('sensor'+[i]).onclick = this._click.bind(this, _entities[i]);
+       this.shadowRoot.getElementById("sensor"+[i]).onclick = this._click.bind(this, _entities[i]);
     }
   }
 
   setConfig(config) {
     if (!config.entity) {
-      throw new Error('You need to define an entity');
+      throw new Error("You need to define an entity");
     }
     if (!config.image) {
-      throw new Error('You need to define an image');
+      throw new Error("You need to define an image");
     }
 
     const root = this.shadowRoot;
@@ -113,9 +113,9 @@ class PlantPictureCard extends HTMLElement {
 
     this.config = config;
 
-    const card = document.createElement('ha-card');
-    const content = document.createElement('div');
-    const style = document.createElement('style');
+    const card = document.createElement("ha-card");
+    const content = document.createElement("div");
+    const style = document.createElement("style");
 
     style.textContent = `
 
@@ -199,14 +199,14 @@ class PlantPictureCard extends HTMLElement {
   }
 }
 
-customElements.define('plant-picture-card', PlantPictureCard);
+customElements.define("plant-picture-card", PlantPictureCard);
 
 
 function deepClone(value) {
-  if (!(!!value && typeof value == 'object')) {
+  if (!(!!value && typeof value === "object")) {
     return value;
   }
-  if (Object.prototype.toString.call(value) == '[object Date]') {
+  if (Object.prototype.toString.call(value) === "[object Date]") {
     return new Date(value.getTime());
   }
   if (Array.isArray(value)) {
@@ -229,7 +229,7 @@ export class PlantPictureCardEditor extends LitElement {
       return html``;
     }
 
-    const entities = Object.keys(this.hass.states).filter(eid => eid.substr(0, eid.indexOf('.')) === 'plant');
+    const entities = Object.keys(this.hass.states).filter(eid => eid.substr(0, eid.indexOf(".")) === "plant");
 
     return html`
       <div class="card-config">
