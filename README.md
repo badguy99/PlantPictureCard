@@ -13,9 +13,7 @@ The configuration can be done via the visual editor or code editor.
 ![Setting up the Plant Picture Card with visual editor](https://github.com/badguy99/PlantPictureCard/blob/master/GraphicalEditor.png)
 ![Setting up the Plant Picture Card with code editor](https://github.com/badguy99/PlantPictureCard/blob/master/CodeEditor.png)
 
-
 ## Card Use in Lovelace
 The card should look ok full size or within a 2x2 horizontal and vertical stack
 
 ![Full size and 2x2 size Plant Picture Cards](https://github.com/badguy99/PlantPictureCard/blob/master/CardViews.png)
-
