@@ -75,7 +75,8 @@ class PlantPictureCard extends HTMLElement {
       "mdi:battery"
     ];
 
-    for (var i=0; i < _entities.length; i++) {
+    var i;
+    for (i = 0; i < _entities.length; i++) {
       var _sensor = _entities[i];
       var _name = hass.states[_sensor].attributes.friendly_name;
       var _state = hass.states[_sensor].state;
@@ -95,8 +96,9 @@ class PlantPictureCard extends HTMLElement {
       `;
     }
 
-    for (var i=0; i < _entities.length; i++) {
-       this.shadowRoot.getElementById("sensor"+[i]).onclick = this._click.bind(this, _entities[i]);
+    var j;
+    for (j = 0; j < _entities.length; j++) {
+       this.shadowRoot.getElementById("sensor"+[j]).onclick = this._click.bind(this, _entities[j]);
     }
   }
 
