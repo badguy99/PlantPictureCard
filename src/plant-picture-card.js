@@ -77,19 +77,19 @@ class PlantPictureCard extends HTMLElement {
 
     var i;
     for (i = 0; i < _entities.length; i++) {
-      var _sensor = _entities[i];
+      var _sensor = _entities[parseInt(i)];
       var _name = hass.states[_sensor].attributes.friendly_name;
       var _state = hass.states[_sensor].state;
       var _uom = hass.states[_sensor].attributes.unit_of_measurement;
       var _icon = hass.states[_sensor].attributes.icon;
       var _class = "state-on";
-      if ( hass.states[config.entity].attributes.problem.indexOf(_sensors[i]) !== -1){
+      if ( hass.states[config.entity].attributes.problem.indexOf(_sensors[parseInt(i)]) !== -1){
         _class += " state-problem";
       }
 
       this.shadowRoot.getElementById("sensors").innerHTML += `
         <div id="sensor${i}" class="sensor">
-          <div class="icon"><ha-icon icon="${_icons[i]}"></ha-icon></div>
+          <div class="icon"><ha-icon icon="${_icons[parseInt(i)]}"></ha-icon></div>
           <div class="${_class}">${_state}</div>
           <div class="uom">${_uom}</div>
         </div>
@@ -98,7 +98,7 @@ class PlantPictureCard extends HTMLElement {
 
     var j;
     for (j = 0; j < _entities.length; j++) {
-       this.shadowRoot.getElementById("sensor"+[j]).onclick = this._click.bind(this, _entities[j]);
+       this.shadowRoot.getElementById("sensor"+[parseInt(j)]).onclick = this._click.bind(this, _entities[parseInt(j)]);
     }
   }
 
@@ -218,7 +218,7 @@ function deepClone(value) {
   }
   var result = {};
   Object.keys(value).forEach(
-    function(key) { result[key] = deepClone(value[key]); });
+    function(key) { result[String(key)] = deepClone(value[String(key)]); });
   return result;
 }
 
