@@ -73,7 +73,7 @@ class PlantPictureCard extends HTMLElement {
       "mdi:white-balance-sunny",
       "mdi:emoticon-poop",
       "mdi:battery"
-    ]
+    ];
 
     for (var i=0; i < _entities.length; i++) {
       var _sensor = _entities[i];
@@ -109,7 +109,9 @@ class PlantPictureCard extends HTMLElement {
     }
 
     const root = this.shadowRoot;
-    if (root.lastChild) root.removeChild(root.lastChild);
+    if (root.lastChild) {
+      root.removeChild(root.lastChild);
+    }
 
     this.config = config;
 
@@ -229,7 +231,7 @@ export class PlantPictureCardEditor extends LitElement {
       return html``;
     }
 
-    const entities = Object.keys(this.hass.states).filter(eid => eid.substr(0, eid.indexOf(".")) === "plant");
+    const entities = Object.keys(this.hass.states).filter((eid) => eid.substr(0, eid.indexOf(".")) === "plant");
 
     return html`
       <div class="card-config">
@@ -246,7 +248,7 @@ export class PlantPictureCardEditor extends LitElement {
             @value-changed="${this._valueChanged}"
            >
              <paper-listbox slot="dropdown-content" .selected=${entities.indexOf(this.config.entity)}>
-               ${entities.map(entity => {
+               ${entities.map((entity) => {
                   return html`
                     <paper-item>${entity}</paper-item>
                   `;
@@ -282,7 +284,7 @@ export class PlantPictureCardEditor extends LitElement {
         };
       }
     }
-    this.configChanged(this.config)
+    this.configChanged(this.config);
   }
 
   configChanged(newConfig) {
