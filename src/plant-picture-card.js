@@ -78,10 +78,10 @@ class PlantPictureCard extends HTMLElement {
     var i;
     for (i = 0; i < _entities.length; i++) {
       var _sensor = _entities[parseInt(i)];
-      var _name = hass.states[_sensor].attributes.friendly_name;
-      var _state = hass.states[_sensor].state;
-      var _uom = hass.states[_sensor].attributes.unit_of_measurement;
-      var _icon = hass.states[_sensor].attributes.icon;
+      var _name = hass.states[String(_sensor)].attributes.friendly_name;
+      var _state = hass.states[String(_sensor)].state;
+      var _uom = hass.states[String(_sensor)].attributes.unit_of_measurement;
+      var _icon = hass.states[String(_sensor)].attributes.icon;
       var _class = "state-on";
       if ( hass.states[config.entity].attributes.problem.indexOf(_sensors[parseInt(i)]) !== -1){
         _class += " state-problem";
