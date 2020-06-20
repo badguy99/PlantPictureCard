@@ -1,5 +1,7 @@
 # PlantPictureCard
 
+[![hacs_badge](https://img.shields.io/badge/HACS-Default-orange.svg)](https://github.com/custom-components/hacs)
+
 This adds a new custom card, which is like a picture glance card, but takes a plant entity rather than other entities. It provides all the plant data across the bottom bar in one go.
 The data should be exactly the same as that displayed by the plant card. And an image should be configured, which is displayed above the plant data.
 
