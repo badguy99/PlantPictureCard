@@ -77,6 +77,7 @@ class PlantPictureCard extends HTMLElement {
 
     var i;
     for (i = 0; i < _entities.length; i++) {
+      if (typeof _entities[parseInt(i)] == "undefined") { continue; }
       var _sensor = _entities[parseInt(i)];
       var _name = hass.states[String(_sensor)].attributes.friendly_name;
       var _state = hass.states[String(_sensor)].state;
@@ -98,6 +99,7 @@ class PlantPictureCard extends HTMLElement {
 
     var j;
     for (j = 0; j < _entities.length; j++) {
+       if (typeof _entities[parseInt(j)] == "undefined") { continue; }
        this.shadowRoot.getElementById("sensor"+[parseInt(j)]).onclick = this._click.bind(this, _entities[parseInt(j)]);
     }
   }
