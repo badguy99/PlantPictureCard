@@ -129,7 +129,6 @@ class PlantPictureCard extends HTMLElement {
         position: relative;
         padding: 0;
         background-size: 100%;
-        background-image: url(https://demo.home-assistant.io/stub_config/t-shirt-promo.png);
       }
 
       img {
