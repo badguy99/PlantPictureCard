@@ -171,15 +171,15 @@ class PlantPictureCard extends HTMLElement {
 
       ha-icon {
         cursor: pointer;
-        color: var(--paper-item-icon-color);
+        color: var(--primary-color);
       }
 
       .state-problem {
-        color: var(--google-red-500);
+        color: var(--accent-color);
       }
 
       .uom {
-        color: var(--secondary-text-color);
+        color: var(--primary-text-color);
       }
 
     `;
