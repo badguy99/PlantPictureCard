@@ -1,6 +1,6 @@
 # PlantPictureCard
 
-[![hacs_badge](https://img.shields.io/badge/HACS-Default-orange.svg)](https://github.com/custom-components/hacs)
+[![hacs_badge](https://img.shields.io/badge/HACS-Default-orange.svg)](https://github.com/hacs/integration)
 
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/bf35eae0509e4f6080dc0973df1f8b42)](https://www.codacy.com/manual/badguy99/PlantPictureCard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=badguy99/PlantPictureCard&amp;utm_campaign=Badge_Grade)
 
